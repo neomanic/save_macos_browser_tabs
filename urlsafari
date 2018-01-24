@@ -41,7 +41,7 @@ tell application "Safari"
 				copy ("## Window " & window_count & ":" & return) to the end of url_list
 			end if
 			repeat with t in (tabs of w)
-				set TabTitle to ("1. [" & name of t & "]")
+				set TabTitle to ("[" & name of t & "]")
 				set TabURL to ("(" & URL of t & ")")
 				set TabInfo to (TabTitle & TabURL & return)
 				copy TabInfo to the end of url_list
