@@ -1,17 +1,24 @@
 (*
 Export All Safari Tabs in All Open Windows to a Markdown File
-July 13, 2015
+2018-01-25
 
 // SCRIPT PAGE
-	http://hegde.me/urlsafari
+
+
+// ORIGINAL SCRIPT PAGE
+	http://hegde.me/urlsafari KSHITEESH ON GIST.GITHUB.COM
    
-// ORIGINAL SCRIPT ON WHICH THIS SCRIPT IS BUILT
+// ORIGINAL-ORIGINAL SCRIPT ON WHICH THIS SCRIPT IS BUILT
 	http://veritrope.com/code/export-all-safari-tabs-to-a-text-file
 
 // CHANGES COMPARED TO THE ORIGINAL SCRIPT
 	1. Save URLs to .md instead of .txt
 	2. Save URLs from all windows instead of just the first window
 	3. Save the file to Downloads/ instead of Desktop/
+
+// CHANGES TO SCRIPT FORKED FROM KSHITEESH https://gist.github.com/kshiteesh/b72e93d31d65008fcd11#file-urlsafari
+	1. Removed dialog asking for filename/location just save to downloads folder.
+	2. Filename created uses time stamp YYYYMMDD-HHMMSS so we don't have filename clash in downloads folder.
 	
 // DISCLAIMER
 	I have made some minor changes to the orginal script which can be found at veritrope.com (full link given above). I'm not affiliated with veritrope.com.
@@ -23,12 +30,15 @@ July 13, 2015
 *)
 ----------------------------------------------------------------------------------------
 -- NAME OF REPORT TITLE
-property report_Title : "URL List from Safari"
+property report_Title : "URLs from Safari "
 
 -- PREPARE THE LIST
 set url_list to {}
 set the date_stamp to ((the current date) as string)
 set NoteTitle to "# " & the date_stamp
+
+-- GET DATE FOR FILENAME - COULD HAVE USED DATESTAMP FROM APPLESCRIPT, BUT THIS WAS SHORTER
+set now to do shell script "date '+%Y%m%d-%H%M%S'"
 
 -- GET TABS FROM SAFARI
 set window_count to 1
@@ -57,11 +67,8 @@ set AppleScript's text item delimiters to return
 set url_list to (NoteTitle & return & return & return & url_list) as text
 set AppleScript's text item delimiters to old_delim
 
--- CHOOSE FILE NAME FOR EXPORT 
-tell application "Finder"
-	activate
-	set save_File to choose file name with prompt "Name this file:" default name report_Title default location (path to downloads folder)
-end tell
+-- SET FILE NAME FOR EXPORT 
+set save_File to (path to downloads folder as string) & (report_Title as string) & (now as string)
 
 --WRITE THE FILE
 tell application "System Events"
