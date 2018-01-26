@@ -3,7 +3,7 @@ Export All Safari Tabs in All Open Windows to a Markdown File
 2018-01-25
 
 // SCRIPT PAGE
-
+	https://gist.github.com/unabridgedxcrpt/3f35aa5aec81289368858e2ba6009451
 
 // ORIGINAL SCRIPT PAGE
 	http://hegde.me/urlsafari KSHITEESH ON GIST.GITHUB.COM
@@ -67,7 +67,7 @@ set AppleScript's text item delimiters to return
 set url_list to (NoteTitle & return & return & return & url_list) as text
 set AppleScript's text item delimiters to old_delim
 
--- SET FILE NAME FOR EXPORT 
+-- SET FILE PATH AND NAME FOR EXPORT 
 set save_File to (path to downloads folder as string) & (report_Title as string) & (now as string)
 
 --WRITE THE FILE
