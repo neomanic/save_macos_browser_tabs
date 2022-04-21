@@ -55,7 +55,7 @@ I had a look, picked my favourite script, and made some changes to my taste:
 - Added the web hostname after the tab title, eg (github.com) in 
   `1. [neomanic/save_macos_browser_tabs: Applescripts to save all tabs from web browsers on macOS (github.com)](https://github.com/neomanic/save_macos_browser_tabs)`
 
-Uploaded to a nice repo with instructions to make it easier for non-geeks to use. I will also add support for browsers other than Safari, since I use it for personal, and Edge for $(dayjob), and pretty sure Firefox and Chrome should be easy enough. And I'll likely have a play with [Javascript for Automation](https://forum.keyboardmaestro.com/t/comparing-javascript-for-automation-jxa-and-applescript/19559) at some stage, because Applescript... ugh.
+Uploaded to a nice repo with instructions to make it easier for non-geeks to use. I will also add support for browsers other than Safari, since I use it for personal, and Edge for $(dayjob), and pretty sure ~~Firefox~~ (scratch that, it doesn't have Applescript support) and Chrome should be easy enough. And I'll likely have a play with [Javascript for Automation](https://forum.keyboardmaestro.com/t/comparing-javascript-for-automation-jxa-and-applescript/19559) at some stage, because Applescript... ugh.
 
 The original readme:
 
@@ -106,6 +106,8 @@ Export All Safari Tabs in All Open Windows to a Markdown File
 
 4. Copy the 'Save Safari Tabs as Markdown.scpt' file into the opened folder.
 
+5. To install for a different browser, repeat steps 3 & 4 for it.
+
 <!-- USAGE EXAMPLES -->
 ## Usage
 
@@ -121,8 +123,8 @@ Go to the Script Menu and chose 'Save Safari Tabs as Markdown'... a few moments 
 
 - [x] Set up nice repo with all my changes
 - [x] Working under Safari
-- [ ] Working under Edge (next)
-- [ ] Other browsers
+- [x] Working under Edge
+- [ ] Working under Chrome?
 - [ ] Installer
 - [ ] Save as HTML or CSV or ?? directly instead of Markdown for the non-geeks?
 

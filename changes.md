@@ -2,6 +2,9 @@
 
 ## 2022-02-21
 
+- Added Microsoft Edge support
+- Changed a few variable names to make them browser-generic
+
 - Added in all my changes, not previously in source control
 - Added readme from template [othneildrew/Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 - Added in Sponge-bink's [fix to save utf-8 tab titles](https://gist.github.com/kshiteesh/b72e93d31d65008fcd11?permalink_comment_id=3471362#gistcomment-3471362)

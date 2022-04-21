@@ -28,7 +28,7 @@ April 21, 2022
 *)
 ----------------------------------------------------------------------------------------
 -- BROWSER NAME
-property browser_name : "Safari"
+property browser_name : "Edge"
 
 -- NAME OF REPORT TITLE
 property report_Title : "URL List from " & browser_name
@@ -40,7 +40,7 @@ set NoteTitle to "# " & browser_name & " Tabs " & the date_stamp
 
 -- GET TABS FROM BROWSER
 set window_count to 1
-tell application "Safari" -- can't use a variable here!
+tell application "Microsoft Edge" -- can't use a variable here!
 	activate
 	set browserWindow to windows
 	repeat with w in browserWindow
@@ -48,19 +48,20 @@ tell application "Safari" -- can't use a variable here!
 			if (tabs of w) is not {} then
 				copy ("## Window " & window_count & return) to the end of url_list
 			end if
-			--set tab_count to 1
+			set tab_count to 1
 			repeat with t in (tabs of w)
 				--set TabHost to (DNS form of (host of (URL of t))) as string
 				--set TabHost to (URL of t)
 				--log class of TabHost
-				--set TabTitle to ("[" & name of t & "(" & TabHost & ")]")
+				--set TabTitle to ("[" & title of t & "(" & TabHost & ")]")
 				set TabURL to ("(" & URL of t & ")")
 				set CommandString to "echo " & quoted form of TabURL & " | sed -e 's|^[^/]*//||' -e 's|/.*$||'"
 				set TabHost to do shell script CommandString
-				set TabTitle to ("[" & name of t & " (" & TabHost & ")]")
-				set TabInfo to ((index of t as string) & ". " & TabTitle & TabURL) -- tab_count
+				set TabTitle to ("[" & title of t & " (" & TabHost & ")]")
+				set TabInfo to ((tab_count as string) & ". " & TabTitle & TabURL) -- tab_count
+				--set TabInfo to ((tab_count as string) & ". " & TabURL)
 				copy TabInfo to the end of url_list
-				--set tab_count to tab_count + 1
+				set tab_count to tab_count + 1
 			end repeat
 			copy "" to the end of url_list
 		end try
@@ -102,3 +103,4 @@ tell application "System Events"
 	end try
 	close access save_File
 end tell
+
